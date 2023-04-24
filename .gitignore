@@ -1,0 +1,6 @@
+chromedriver.exe
+*.csv
+venv/
+__pycache__/
+*.xml
+.idea/
