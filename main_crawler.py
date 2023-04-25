@@ -32,6 +32,7 @@ if __name__ == '__main__':
         # Remove duplicates by title
         complete_df = complete_df.drop_duplicates(subset=['title'])
         complete_df = complete_df.reset_index(drop=True)
+        complete_df['datetime'] = complete_df['datetime'].astype(str)
         complete_df = complete_df.sort_values(by=['datetime'], ascending=False)
         complete_df.to_csv(path, index=False)
 
