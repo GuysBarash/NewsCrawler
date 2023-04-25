@@ -25,6 +25,7 @@ if __name__ == '__main__':
         bulletsdf = bulletsdf.reset_index(drop=True)
         bulletsdf = bulletsdf.drop_duplicates(subset=['title'])
         bulletsdf.to_csv(path, index=False, encoding='utf-8-sig')
+        print(f"Saved {len(bulletsdf)} bullets to {path}")
     else:
         complete_df = pd.read_csv(full_path, encoding='utf-8-sig')
         complete_df = pd.concat([complete_df, bulletsdf])
@@ -35,5 +36,6 @@ if __name__ == '__main__':
         complete_df['datetime'] = complete_df['datetime'].astype(str)
         complete_df = complete_df.sort_values(by=['datetime'], ascending=False)
         complete_df.to_csv(path, index=False)
+        print(f"Saved {len(complete_df)} bullets to {path}")
 
-    print(f"Saved {len(bulletsdf)} bullets to {path}")
+
